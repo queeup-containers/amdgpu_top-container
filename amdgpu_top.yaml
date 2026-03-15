@@ -1,0 +1,15 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - https://dl-cdn.alpinelinux.org/alpine/edge/testing/
+  packages:
+    - amdgpu_top
+
+entrypoint:
+  command: amdgpu_top
+
+environment:
+  PATH: /usr/bin
+
+archs:
+ - amd64
