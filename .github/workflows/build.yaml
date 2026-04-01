@@ -24,7 +24,7 @@ jobs:
         run: |
           get_latest_version() {
             curl -s "https://pkgs.alpinelinux.org/package/edge/testing/x86_64/${{ env.APP_NAME }}" | \
-              grep -A 3 'Version' | grep -oP '<strong>\K[^<]+'
+              grep -A 3 '>Version<' | grep -oP '<strong[^>]*>\K[^<]+' | xargs
           }
           LATEST_VER=$(get_latest_version)
           echo "latest_version=$LATEST_VER" >> $GITHUB_OUTPUT
